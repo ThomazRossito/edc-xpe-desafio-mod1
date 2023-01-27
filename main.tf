@@ -9,7 +9,7 @@ terraform {
   }
   backend "s3" {
     bucket = "tarn-datalake-tf-state-433046906551"
-    key    = "aws-buckets/project-mod1/desafio/terraform.tfstate"
+    key    = "aws-buckets/desafio-mod1/desafio/terraform.tfstate"
     region = "us-east-1"
   }
 }
@@ -26,3 +26,4 @@ provider "aws" {
     }
   }
 }
+
