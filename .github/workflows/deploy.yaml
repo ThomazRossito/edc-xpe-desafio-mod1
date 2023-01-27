@@ -30,7 +30,7 @@ jobs:
     - name: IaC Apply AWS
       env:
         COMMAND_IAC: terraform
-      runs: |
+      run: |
         $COMMAND_IAC init
         $COMMAND_IAC validate
         $COMMAND_IAC plan
