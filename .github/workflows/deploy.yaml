@@ -27,10 +27,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
         
-    - name: IaC Apply
+    - name: IaC Apply AWS
       env:
         COMMAND_IAC: terraform
-      runs: |
+      run: |
         $COMMAND_IAC init
         $COMMAND_IAC validate
         $COMMAND_IAC plan
