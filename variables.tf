@@ -33,6 +33,6 @@ variable "bucket_names" {
     "datalake-raw",
     "datalake-bronze",
     "datalake-logs"
-    # "tarn-datalake-querys-athena"
+    # "tarn-datalake-querys-athena2"
   ]
 }
