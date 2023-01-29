@@ -105,10 +105,19 @@ resource "aws_sfn_state_machine" "stepfunction" {
       "Resource": "arn:aws:states:::elasticmapreduce:terminateCluster.sync",
       "Parameters": {
         "ClusterId.$": "$.CreateClusterResult.ClusterId"
+    },
+    "ResultPath": "$.sparkResult",
+    "Next":"StartCrawler"
+    },
+    "StartCrawler": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:glue:startCrawler",
+      "Parameters": {
+        "Name": "tarn-database-crawler"
       },
       "End": true
     }
   }
-}
+  }  
 EOF
 }

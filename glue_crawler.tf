@@ -1,8 +1,7 @@
 resource "aws_glue_crawler" "tarn_database_crawler" {
-  name          = "tarn-database-crawler"
-#   database_name = aws_glue_catalog_database.tarn_database_crawler.name
   database_name = "tarn-database-crawler"
-  #   role          = aws_iam_role.example.arn
+  name          = "tarn-database-crawler"
+
   role = "arn:aws:iam::433046906551:role/service-role/AWSGlueServiceRole-tarn-crw"
 
   s3_target {

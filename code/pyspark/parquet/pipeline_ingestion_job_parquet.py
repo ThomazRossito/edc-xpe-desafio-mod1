@@ -66,7 +66,7 @@ pathBronze = f"s3://tarn-datalake-bronze-433046906551/parquet/{productRais}/"
 # #### Schema DDL
 
 # %%
-fileNameSchema = "RAIS_VINC_PUB_NORTE.txt.bz2"
+fileNameSchema = "RAIS_VINC_PUB_NORTE.txt.gz"
 filePathSchema = f"{pathRaw}/{fileNameSchema}"
 
 fileDfSchema   = (spark.read
@@ -213,10 +213,10 @@ rais2020_parquet = (
                    )   
 
 # %%
-rais2020_parquet.count()
+print(rais2020_parquet.count())
 
 # %%
-rais2020_parquet.printSchema()
+print(rais2020_parquet.printSchema())
 
 # %%
 

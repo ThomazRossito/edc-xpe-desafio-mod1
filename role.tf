@@ -1,3 +1,6 @@
+data "aws_iam_policy" "AWSGlueServiceRole" {
+  arn = "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
+}
 data "aws_iam_policy" "AWSStepFunctionsFullAccess" {
   arn = "arn:aws:iam::aws:policy/AWSStepFunctionsFullAccess"
 }
@@ -24,6 +27,10 @@ data "aws_iam_policy" "XRayAccessPolicy" {
 resource "aws_iam_role" "StepFunctionTarnRole" {
   name               = "StepFunctionRole"
   assume_role_policy = file("${var.local_file}/state-assume-policy.json")
+}
+resource "aws_iam_role_policy_attachment" "step_function_attach_policy_awsglueservicerole" {
+  role       = aws_iam_role.StepFunctionTarnRole.name
+  policy_arn = data.aws_iam_policy.AWSGlueServiceRole.arn
 }
 resource "aws_iam_role_policy_attachment" "step_function_attach_policy_awsstepfunctionfullaccess" {
   role       = aws_iam_role.StepFunctionTarnRole.name
