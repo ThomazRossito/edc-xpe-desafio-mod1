@@ -55,54 +55,54 @@ extension_gz  = ".gz"
 
 
 ################################### Download Files FTP ###########################################
-# print("")
-# print(f"Início download do FTP...")
+print("")
+print(f"Início download do FTP...")
 
-# ftp = FTP('ftp.mtps.gov.br')
-# ftp.login() 
-# files = ftp.nlst("pdet/microdados/rais/2020/")
-# ftp.cwd("pdet/microdados/rais/2020/")
+ftp = FTP('ftp.mtps.gov.br')
+ftp.login() 
+files = ftp.nlst("pdet/microdados/rais/2020/")
+ftp.cwd("pdet/microdados/rais/2020/")
 
-# ## Multiple Files
-# for i in files:
-#     print(f"{path_master}{path_7zip}" + i[26:])
-#     ftp.retrbinary("RETR " + i[26:], open(f"{path_master}{path_7zip}" + i[26:], 'wb').write)
+## Multiple Files
+for i in files:
+    print(f"{path_master}{path_7zip}" + i[26:])
+    ftp.retrbinary("RETR " + i[26:], open(f"{path_master}{path_7zip}" + i[26:], 'wb').write)
 
-# ftp.close()
+ftp.close()
 
-# print(f"Fim download do FTP...")
+print(f"Fim download do FTP...")
 
 
 ################################### 7-ZIP -> TXT #################################################
 dir_source_7z = f"{path_master}{path_7zip}"
 dir_targe_txt = f"{path_master}{path_txt}"
 
-# print("")
-# print(f"Iniciando o unzip 7-ZIP -> TXT...")
+print("")
+print(f"Iniciando o unzip 7-ZIP -> TXT...")
 
-# for filename in os.listdir(path=dir_source_7z):
-#     if filename.endswith(extension_7z):
-#         print(filename)
-#         Archive(f"{dir_source_7z}/{filename}").extractall(f"{dir_targe_txt}")
+for filename in os.listdir(path=dir_source_7z):
+    if filename.endswith(extension_7z):
+        print(filename)
+        Archive(f"{dir_source_7z}/{filename}").extractall(f"{dir_targe_txt}")
 
-# print(f"Fim o unzip 7-ZIP -> TXT...")
+print(f"Fim o unzip 7-ZIP -> TXT...")
 
 
 ################################### TXT -> GZIP ###################################################
 dir_source_gzip = f"{path_master}{path_gzip}"
 
-# print("")
-# print(f"Iniciando o zip TXT -> GZIP...")
+print("")
+print(f"Iniciando o zip TXT -> GZIP...")
 
-# for namefile in os.listdir(path=dir_targe_txt):
-#     if namefile.endswith(extension_txt):
-#         print(namefile)
-#         with open(f"{dir_targe_txt}/{namefile}", 'rb') as f_in:
-#             with gzip.open(f"{dir_source_gzip}/{namefile}" + extension_gz, 'wb') as f_out:
-#                 shutil.copyfileobj(f_in, f_out)
+for namefile in os.listdir(path=dir_targe_txt):
+    if namefile.endswith(extension_txt):
+        print(namefile)
+        with open(f"{dir_targe_txt}/{namefile}", 'rb') as f_in:
+            with gzip.open(f"{dir_source_gzip}/{namefile}" + extension_gz, 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
 
-# print(f"Fim GZIP -> Upload S3...")
-# print("")
+print(f"Fim GZIP -> Upload S3...")
+print("")
 
 
 ################################### GZIP -> Upload S3 #################################################
