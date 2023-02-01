@@ -11,6 +11,11 @@
 > Esteiras de Deploy, utilizando o Github; <br>
 > IaC com Terraform.
 
+
+## Arquitetura
+![image](https://user-images.githubusercontent.com/28718418/215929021-d72b810c-683b-439b-b3ab-eef86fec61bb.png)
+
+
 ### Provider de preferência:
 - A Amazon Web Services (AWS) é a plataforma de nuvem mais adotada e mais abrangente do mundo, oferecendo mais de 200 serviços completos de datacenters em todo o mundo.
 
