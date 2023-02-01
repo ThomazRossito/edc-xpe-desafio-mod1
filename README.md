@@ -13,7 +13,8 @@
 
 
 ## Arquitetura
-![image](https://user-images.githubusercontent.com/28718418/215929021-d72b810c-683b-439b-b3ab-eef86fec61bb.png)
+![image](https://user-images.githubusercontent.com/28718418/216142695-63e1d154-a223-4d17-87cb-69e87a4b04b6.png)
+
 
 
 ### Provider de preferência:
